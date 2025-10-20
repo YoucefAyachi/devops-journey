@@ -1,0 +1,6 @@
+#!/bin/bash
+# My first bash script
+echo "Hello Youcef, welcome to DevOps!"
+echo "Today's date is:"
+date
+
