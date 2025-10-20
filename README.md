@@ -1,2 +1,3 @@
 ### Learning Git Branching
-Conflict line from master branch
+Conflict line (merged version)
+
