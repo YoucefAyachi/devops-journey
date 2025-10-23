@@ -7,7 +7,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,4 +26,6 @@ jobs:
           context: ./flask-nginx-loadbalancer/app
           file: ./flask-nginx-loadbalancer/app/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-app:latest
+          tags: youcefayachi/flask-app:latest
+
+
