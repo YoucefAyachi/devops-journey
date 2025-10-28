@@ -28,4 +28,15 @@ jobs:
           push: true
           tags: youcefayachi/flask-app:latest
 
-
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy with Docker Compose (pull latest + restart)
+        run: |
+          docker --version
+          docker compose version
+          docker compose pull
+          docker compose up -d
