@@ -40,3 +40,15 @@ jobs:
           docker compose version
           docker compose pull
           docker compose up -d
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy with Docker Compose
+        run: |
+          echo "Deploying latest flask-app..."
+          docker compose pull
+          docker compose up -d
