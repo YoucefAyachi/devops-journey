@@ -28,27 +28,19 @@ jobs:
           push: true
           tags: youcefayachi/flask-app:latest
 
-  deploy:
+  deploy:                       # <-- only ONE deploy job
     needs: build-and-push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Deploy with Docker Compose (pull latest + restart)
+      - name: Show Docker versions (sanity)
         run: |
           docker --version
           docker compose version
-          docker compose pull
-          docker compose up -d
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy with Docker Compose
+      - name: Deploy with Docker Compose (pull latest + restart)
         run: |
-          echo "Deploying latest flask-app..."
           docker compose pull
           docker compose up -d
+
+
